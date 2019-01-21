@@ -1,4 +1,4 @@
-package tai.demo.demo;
+package tai.demo.demo.Bookcase;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
