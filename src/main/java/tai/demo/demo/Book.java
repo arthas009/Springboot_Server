@@ -1,7 +1,12 @@
 package tai.demo.demo;
-//import javax.xml.bind.annotation.XmlRootElement;
 
-//@XmlRootElement
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement(name = "Book")
+@JsonRootName(value = "Book")
 public class Book {
     private String title;
     private String author;
