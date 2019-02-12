@@ -32,7 +32,7 @@ public class RESController {
         for(int i = 0;i<totalelements;i++)
         {
             int[] timestamps = new int[5];
-            timestamps[0] = rnd.nextInt(100)+5;
+            timestamps[0] = rnd.nextInt(101)+5;
             timestamps[1] = rnd.nextInt(100)+5;
             timestamps[2] = rnd.nextInt(100)+5;
             timestamps[3] = rnd.nextInt(100)+5;
