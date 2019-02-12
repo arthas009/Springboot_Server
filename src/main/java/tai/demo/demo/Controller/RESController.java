@@ -25,10 +25,22 @@ public class RESController {
         Random rnd = new Random();
         List<ParameterObject> parameters = new LinkedList<ParameterObject>();
 
+
+
         int totalelements = rnd.nextInt(25)+5;
         System.out.println(totalelements);
         for(int i = 0;i<totalelements;i++)
-        parameters.add(new ParameterObject("",generateString(),generateString(),rnd.nextInt()%200+1800,rnd.nextDouble()%200+1800,generateString(),rnd.nextInt()%200+1800,rnd.nextInt()%2000+1800));
+        {
+            int[] timestamps = new int[5];
+            timestamps[0] = rnd.nextInt(100)+5;
+            timestamps[1] = rnd.nextInt(100)+5;
+            timestamps[2] = rnd.nextInt(100)+5;
+            timestamps[3] = rnd.nextInt(100)+5;
+            timestamps[4] = rnd.nextInt(100)+5;
+            parameters.add(new ParameterObject("",generateString(),generateString(),
+                    rnd.nextInt()%200+1800,rnd.nextDouble()%200+1800,generateString(),
+                    rnd.nextInt()%200+1800,rnd.nextInt()%2000+1800,timestamps));
+        }
 
         Parameters<String,List<ParameterObject>> returnmap = new Parameters<>();
         returnmap.put("Parameter", parameters);

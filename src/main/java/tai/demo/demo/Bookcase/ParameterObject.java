@@ -2,6 +2,7 @@ package tai.demo.demo.Bookcase;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
@@ -16,10 +17,12 @@ public class ParameterObject {
     private int minvalue;
     private int maxvalue;
 
+    @XmlElement(name = "ParameterObject")
+    private int[] timestamps;
 
     public ParameterObject(){}
 
-    public ParameterObject(String irrelevelant, String parameter1, String parameter2, int parameter3,double parameter4,String definition,int minvalue,int maxvalue){
+    public ParameterObject(String irrelevelant, String parameter1, String parameter2, int parameter3,double parameter4,String definition,int minvalue,int maxvalue,int[] timestamps){
         this.parameter1 = parameter1;
         this.parameter2 = parameter2;
         this.parameter3 = parameter3;
@@ -27,6 +30,9 @@ public class ParameterObject {
         this.definition = definition;
         this.minvalue = minvalue;
         this.maxvalue = maxvalue;
+
+
+        this.timestamps = timestamps;
     }
 
     public void setDefinition(String definition) {
@@ -84,9 +90,18 @@ public class ParameterObject {
     public String getParameter2() {
         return parameter2;
     }
+
+    public int[] getTimestamp()
+    {
+        return timestamps;
+    }
+    public void setTimestamp(int[] timestamps)
+    {
+        this.timestamps=timestamps;
+    }
     @Override
     public String toString() {
-        return  ""+parameter1+ parameter2+parameter3+parameter4+ definition+ minvalue+ maxvalue;
+        return  ""+parameter1+ parameter2+parameter3+parameter4+ definition+ minvalue+ maxvalue+timestamps;
 
     }
 }
