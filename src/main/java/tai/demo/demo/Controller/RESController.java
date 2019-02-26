@@ -31,12 +31,14 @@ public class RESController {
         System.out.println(totalelements);
         for(int i = 0;i<totalelements;i++)
         {
-            int[] timestamps = new int[5];
+            int[] timestamps = new int[7];
             timestamps[0] = rnd.nextInt(101)+5;
             timestamps[1] = rnd.nextInt(100)+5;
             timestamps[2] = rnd.nextInt(100)+5;
             timestamps[3] = rnd.nextInt(100)+5;
             timestamps[4] = rnd.nextInt(100)+5;
+            timestamps[5] = rnd.nextInt(100)+5;
+            timestamps[6] = rnd.nextInt(100)+5;
             //
             parameters.add(new ParameterObject("",generateString(),generateString(),
                     rnd.nextInt()%200+1800,rnd.nextDouble()%200+1800,generateString(),
