@@ -28,7 +28,7 @@ public class RESController {
 
 
         int totalelements = rnd.nextInt(25)+5;
-        System.out.println(totalelements);
+
         for(int i = 0;i<totalelements;i++)
         {
             int[] timestamps = new int[7];
@@ -44,7 +44,7 @@ public class RESController {
                     rnd.nextInt()%200+1800,rnd.nextDouble()%200+1800,generateString(),
                     rnd.nextInt()%200+1800,rnd.nextInt()%2000+1800,timestamps));
         }
-
+        System.out.println("Sending: "+parameters);
         Parameters<String,List<ParameterObject>> returnmap = new Parameters<>();
         returnmap.put("Parameter", parameters);
         return returnmap;
