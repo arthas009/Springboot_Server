@@ -31,14 +31,15 @@ public class RESController {
 
         for(int i = 0;i<totalelements;i++)
         {
-            int[] timestamps = new int[7];
+            int[] timestamps = new int[1];
             timestamps[0] = rnd.nextInt(101)+5;
-            timestamps[1] = rnd.nextInt(100)+5;
+      /*      timestamps[1] = rnd.nextInt(100)+5;
             timestamps[2] = rnd.nextInt(100)+5;
             timestamps[3] = rnd.nextInt(100)+5;
             timestamps[4] = rnd.nextInt(100)+5;
             timestamps[5] = rnd.nextInt(100)+5;
             timestamps[6] = rnd.nextInt(100)+5;
+            */
             //
             parameters.add(new ParameterObject("",generateString(),generateString(),
                     rnd.nextInt()%200+1800,rnd.nextDouble()%200+1800,generateString(),
@@ -64,8 +65,7 @@ public class RESController {
 
  // 65-122
  public static String generateString() {
-     String uuid = UUID.randomUUID().toString();
-     return "uuid = " + uuid;
+     return UUID.randomUUID().toString();
  }
 
 }
