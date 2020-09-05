@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import tai.demo.demo.Bookcase.New;
+import tai.demo.demo.Bookcase.News;
 import tai.demo.demo.Bookcase.ParameterObject;
 import tai.demo.demo.Bookcase.Parameters;
 
@@ -20,17 +22,21 @@ public class RESController {
 
     @GetMapping("/")
     @ResponseBody
-    public Parameters<String, List<ParameterObject>> getBooks(){
+    public News<String, List<New>> getNews(){
 
         Random rnd = new Random();
-        List<ParameterObject> parameters = new LinkedList<ParameterObject>();
-
+        List<New> news = new LinkedList<New>();
 
 
         int totalelements = rnd.nextInt(25)+5;
         System.out.println(totalelements);
         for(int i = 0;i<totalelements;i++)
         {
+            String haberAdi = "Haber 1";
+            String haberIcerigi = "Yarışmada ilk 3'e giren sporcularımız";
+            String haberTarihi = "Ağustos 2020";
+
+            /*
             int[] timestamps = new int[7];
             timestamps[0] = rnd.nextInt(101)+5;
             timestamps[1] = rnd.nextInt(100)+5;
@@ -40,15 +46,60 @@ public class RESController {
             timestamps[5] = rnd.nextInt(100)+5;
             timestamps[6] = rnd.nextInt(100)+5;
             //
-            parameters.add(new ParameterObject("",generateString(),generateString(),
-                    rnd.nextInt()%200+1800,rnd.nextDouble()%200+1800,generateString(),
-                    rnd.nextInt()%200+1800,rnd.nextInt()%2000+1800,timestamps));
+            */
+
+            news.add(new New(haberAdi,haberIcerigi,haberTarihi));
         }
 
-        Parameters<String,List<ParameterObject>> returnmap = new Parameters<>();
-        returnmap.put("Parameter", parameters);
+
+
+
+        News<String,List<New>> returnmap = new News<>();
+        returnmap.put("New", news);
         return returnmap;
     }
+
+    @GetMapping("/news")
+    @ResponseBody
+    public News<String, List<New>> haberleriVer(){
+
+        Random rnd = new Random();
+        List<New> news = new LinkedList<New>();
+
+
+        int totalelements = rnd.nextInt(25)+5;
+        System.out.println(totalelements);
+        for(int i = 0;i<totalelements;i++)
+        {
+            String haberAdi = "Haber "+(i+1);
+            String haberIcerigi = "Yarışmada ilk "+i+"'e giren sporcularımız arışmada ilk \"+i+\"'e giren sporcularımız arışmada ilk \"+i+\"'e giren sporcularımız arışmada ilk \"+i+\"'e giren sporcularımız arışmada ilk \"+i+\"'e giren sporcularımız arışmada ilk \"+i+\"'e giren sporcularımız";
+            String haberTarihi = "Ağustos 2020";
+
+            /*
+            int[] timestamps = new int[7];
+            timestamps[0] = rnd.nextInt(101)+5;
+            timestamps[1] = rnd.nextInt(100)+5;
+            timestamps[2] = rnd.nextInt(100)+5;
+            timestamps[3] = rnd.nextInt(100)+5;
+            timestamps[4] = rnd.nextInt(100)+5;
+            timestamps[5] = rnd.nextInt(100)+5;
+            timestamps[6] = rnd.nextInt(100)+5;
+            //
+            */
+
+            news.add(new New(haberAdi,haberIcerigi,haberTarihi));
+        }
+
+
+
+
+        News<String,List<New>> returnmap = new News<>();
+        returnmap.put("New", news);
+        return returnmap;
+    }
+
+
+
 /*
     @PostMapping("/hello-world")
     @ResponseBody
